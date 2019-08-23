@@ -1,11 +1,11 @@
-import { changeTab } from 'actions';
+import { changeTab } from "actions";
 
-describe('saveComment', () => {
-  it('has the correct type', () => {
+describe("just a test on a single action", () => {
+  it("has the correct type", () => {
     const action = changeTab();
-    expect(action.type).toEqual('CHANGE_TAB');
+    expect(action.type).toEqual("CHANGE_TAB");
   });
-  it('has the correct payload', () => {
+  it("has the correct payload", () => {
     const action = changeTab(true);
     expect(action.payload).toEqual(true);
   });
