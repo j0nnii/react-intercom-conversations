@@ -3,6 +3,7 @@ import faker from "faker";
 import Company from "components/Company";
 import { connect } from "react-redux";
 import _ from "lodash";
+import { setCompanyFilter } from "../actions";
 
 class Companies extends Component {
   state = { companies: [] };
@@ -16,6 +17,12 @@ class Companies extends Component {
         ({ conversations, name }) => {
           return (
             <Company
+              isFilteredCompany={this.props.filteredCompanies.find(
+                company => company === name
+              )}
+              onSetCompanyFilter={companyName =>
+                this.props.setCompanyFilter(companyName)
+              }
               key={name}
               conversations={conversations}
               logo={faker.image.abstract()}
@@ -46,8 +53,12 @@ const mapStateToProps = ({ users, conversations, ui }) => {
     users: users.users,
     companies: users.companies,
     messages: conversations.conversations,
-    lipsumMode: ui.lipsumMode
+    lipsumMode: ui.lipsumMode,
+    filteredCompanies: users.filteredCompanies
   };
 };
 
-export default connect(mapStateToProps)(Companies);
+export default connect(
+  mapStateToProps,
+  { setCompanyFilter }
+)(Companies);

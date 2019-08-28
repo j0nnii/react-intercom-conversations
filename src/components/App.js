@@ -55,7 +55,9 @@ class App extends Component {
   };
 
   getConversationsAmount = () => {
-    return this.props.users.length > 0 ? ` (${this.props.users.length})` : "";
+    return this.props.users.length > 0 && !this.props.filteredCompanies.length
+      ? ` (${this.props.users.length})`
+      : "";
   };
 
   getCompaniesAmount = () => {
@@ -132,7 +134,8 @@ const mapStateToProps = ({ ui, conversations, users }) => {
     users: users.users,
     companies: users.companies,
     intercomKey: ui.intercomKey,
-    lipsumMode: ui.lipsumMode
+    lipsumMode: ui.lipsumMode,
+    filteredCompanies: users.filteredCompanies
   };
 };
 

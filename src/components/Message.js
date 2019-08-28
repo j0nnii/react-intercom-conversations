@@ -1,7 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Message = ({ userId, image, name, date, message, messageId }) => {
+const Message = ({
+  userId,
+  image,
+  name,
+  date,
+  message,
+  messageId,
+  company
+}) => {
+  if (company === "") return null;
   return (
     <div className="comment">
       <a

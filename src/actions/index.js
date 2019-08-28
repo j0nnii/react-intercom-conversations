@@ -31,6 +31,13 @@ export const changeTab = tab => {
   };
 };
 
+export const setCompanyFilter = companyName => {
+  return {
+    type: "SET_COMPANY_FILTER",
+    payload: companyName
+  };
+};
+
 export const fetchConversations = (nextPage, callback) => async (
   dispatch,
   getState

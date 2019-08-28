@@ -1,15 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const Company = ({ conversations, logo, name }) => {
+const Company = ({
+  conversations,
+  logo,
+  name,
+  onSetCompanyFilter,
+  isFilteredCompany
+}) => {
+  const companyName = isFilteredCompany ? <strong>{name}</strong> : name;
   return (
-    <div className='item'>
-      <div className='right floated content'>
-        <div className='ui large label'>{conversations}</div>
+    <div className="item">
+      <div className="right floated content">
+        <div className="ui large label">{conversations}</div>
       </div>
-      <img className='ui avatar image' src={logo} alt="" />
-      <div className='content'>
-        {name}
+      <img className="ui avatar image" src={logo} alt="" />
+      <div
+        className="content"
+        style={{ cursor: "pointer" }}
+        onClick={() => onSetCompanyFilter(name)}
+      >
+        {companyName}
       </div>
     </div>
   );
@@ -17,8 +28,8 @@ const Company = ({ conversations, logo, name }) => {
 
 Company.defaultProps = {
   conversations: 0,
-  logo: '',
-  name: ''
+  logo: "",
+  name: ""
 };
 
 Company.propTypes = {
