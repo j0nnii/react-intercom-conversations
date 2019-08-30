@@ -43,7 +43,7 @@ export const fetchConversations = (nextPage, callback) => async (
   getState
 ) => {
   const response = await axios.get(
-    `http://localhost:3000/conversations?type=admin&admin_id=1881793&order=created_at&sort=desc&display_as=plaintext&per_page=50&page=${nextPage}`,
+    `https://api.intercom.io/conversations?type=admin&admin_id=1881793&order=created_at&sort=desc&display_as=plaintext&per_page=50&page=${nextPage}`,
     intercomHeaders(getState().ui.intercomKey)
   );
   dispatch({
@@ -55,7 +55,7 @@ export const fetchConversations = (nextPage, callback) => async (
 
 export const fetchUser = userId => async (dispatch, getState) => {
   const response = await axios.get(
-    `http://localhost:3000/users/${userId}`,
+    `https://api.intercom.io/users/${userId}`,
     intercomHeaders(getState().ui.intercomKey)
   );
   dispatch({
