@@ -43,7 +43,7 @@ export const fetchConversations = (nextPage, callback) => async (
   getState
 ) => {
   const response = await axios.get(
-    `https://tranquil-crag-82101.herokuapp.com/conversations?type=admin&admin_id=1881793&order=created_at&sort=desc&display_as=plaintext&per_page=50&page=${nextPage}`,
+    `https://limitless-crag-95623.herokuapp.com/conversations?type=admin&admin_id=1881793&order=created_at&sort=desc&display_as=plaintext&per_page=50&page=${nextPage}`,
     intercomHeaders(getState().ui.intercomKey)
   );
   dispatch({
@@ -55,7 +55,7 @@ export const fetchConversations = (nextPage, callback) => async (
 
 export const fetchUser = userId => async (dispatch, getState) => {
   const response = await axios.get(
-    `https://tranquil-crag-82101.herokuapp.com/users/${userId}`,
+    `https://limitless-crag-95623.herokuapp.com/users/${userId}`,
     intercomHeaders(getState().ui.intercomKey)
   );
   dispatch({
